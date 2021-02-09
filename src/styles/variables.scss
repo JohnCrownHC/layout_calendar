@@ -1,0 +1,12 @@
+$cell-size: 100px;
+$margin: 1px;
+$ending-date: 28, 29, 30, 31;
+$first-day: (
+  "mon": 0,
+  "tue": ($cell-size + $margin),
+  "wed": ($cell-size + $margin) * 2,
+  "thu": ($cell-size + $margin) * 3,
+  "fri": ($cell-size + $margin) * 4,
+  "sat": ($cell-size + $margin) * 5,
+  "sun": ($cell-size + $margin) * 6
+);

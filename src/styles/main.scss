@@ -1,3 +1,49 @@
+@import "variables";
+@import "mixins";
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
+}
+
+.calendar {
+  width: 707px;
+  margin: 50px auto;
+  display: flex;
+  flex-wrap: wrap;
+
+  div {
+    @include hidden;
+  }
+}
+
+@each $date in $ending-date {
+  .calendar-#{$date} {
+    @for $i from 1 through $date {
+      > div:nth-child(#{$i}) {
+        @include visible;
+        @include cell-style;
+        &:before {
+          content: "#{$i}";
+        }
+        &:hover {
+          cursor: pointer;
+          background-color: #ffc0cb;
+          transform: translateY(-20px);
+          transition: 0.4s;
+        }
+      }
+    }
+  }
+}
+
+@each $day, $size in $first-day {
+  .calendar-#{$day}:first-child {
+    div:first-child {
+      margin-left: $size;
+    }
+  }
 }
