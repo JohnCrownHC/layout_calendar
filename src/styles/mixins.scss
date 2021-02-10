@@ -1,8 +1,8 @@
-@mixin hidden {
-  display: none;
-}
-
 @mixin cell-style {
+  width: $cell-size;
+  height: $cell-size;
+  margin: 0 $margin $margin 0;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,10 +10,4 @@
   font-size: 30px;
   border: 1px solid;
   background-color: #eee;
-}
-
-@mixin visible {
-  width: $cell-size;
-  height: $cell-size;
-  margin: 0 $margin $margin 0;
 }

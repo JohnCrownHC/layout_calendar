@@ -16,7 +16,7 @@ body {
   flex-wrap: wrap;
 
   div {
-    @include hidden;
+    display: none;
   }
 }
 
@@ -24,20 +24,20 @@ body {
   .calendar-#{$date} {
     @for $i from 1 through $date {
       > div:nth-child(#{$i}) {
-        @include visible;
         @include cell-style;
+        transition: 0.4s;
         &:before {
           content: "#{$i}";
-        }
-        &:hover {
-          cursor: pointer;
-          background-color: #ffc0cb;
-          transform: translateY(-20px);
-          transition: 0.4s;
         }
       }
     }
   }
+}
+
+.calendar div:hover {
+  cursor: pointer;
+  background-color: #ffc0cb;
+  transform: translateY(-20px);
 }
 
 @each $day, $size in $first-day {
